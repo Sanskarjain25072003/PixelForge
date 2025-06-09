@@ -67,6 +67,7 @@ const ImageCard = ({ item }) => {
         style={{ borderRadius: "12px" }}
         width="100%"
         src={item?.photo}
+        loading="lazy"
       />
       <HoverOverlay>
         <Prompt>{item?.prompt}</Prompt>
