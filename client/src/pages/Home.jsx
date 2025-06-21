@@ -5,10 +5,12 @@ import ImageCard from "../components/ImageCard";
 import { CircularProgress } from "@mui/material";
 import { GetPosts } from "../api";
 
+
 const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
-  background: ${({ theme }) => theme.bg};
+  background-size: cover;
+  backdrop-filter: blur(50px);
   padding: 30px 30px;
   padding-bottom: 50px;
   display: flex;
@@ -76,8 +78,10 @@ const Home = () => {
     await GetPosts()
       .then((res) => {
         setLoading(false);
-        setPosts(res?.data?.data);
-        setFilteredPosts(res?.data?.data);
+        // Reverse once here when setting state
+        const reversedPosts = res?.data?.data ? [...res.data.data].reverse() : [];
+        setPosts(reversedPosts);
+        setFilteredPosts(reversedPosts);
       })
       .catch((error) => {
         setError(error?.response?.data?.message);
@@ -93,6 +97,7 @@ const Home = () => {
   useEffect(() => {
     if (!search) {
       setFilteredPosts(posts);
+      return;
     }
 
     const SearchFilteredPosts = posts.filter((post) => {
@@ -106,9 +111,7 @@ const Home = () => {
       return promptMatch || authorMatch;
     });
 
-    if (search) {
-      setFilteredPosts(SearchFilteredPosts);
-    }
+    setFilteredPosts(SearchFilteredPosts);
   }, [posts, search]);
 
   return (
@@ -128,12 +131,9 @@ const Home = () => {
               <>No Posts Found</>
             ) : (
               <>
-                {filteredPosts
-                  .slice()
-                  .reverse()
-                  .map((item, index) => (
-                    <ImageCard key={index} item={item} />
-                  ))}
+                {filteredPosts.map((item) => (
+                  <ImageCard key={item._id} item={item} />
+                ))}
               </>
             )}
           </CardWrapper>

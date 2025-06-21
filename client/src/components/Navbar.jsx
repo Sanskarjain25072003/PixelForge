@@ -7,7 +7,9 @@ import { red } from "@mui/material/colors";
 
 const Container = styled.div`
   flex: 1;
-  background: ${({ theme }) => theme.navbar};
+  background: transparent;
+  filter:brightness(0.7);
+  backdrop-filter: blur(50px);
   color: ${({ theme }) => theme.text_primary};
   font-weight: bold;
   font-size: 22px;
@@ -27,7 +29,7 @@ const Navbar = () => {
   const path = location.pathname.split("/");
   return (
     <Container>
-      <span style={{color:"aqua"}}>DreaMatrix</span>
+      <span style={{color:"aqua",fontSize:"30px"}}>DreaMatrix</span>
       {path[1] === "post" ? (
         <Button
           onClick={() => navigate("/")}

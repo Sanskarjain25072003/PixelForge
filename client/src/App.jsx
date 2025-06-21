@@ -4,12 +4,16 @@ import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import bg from "./assets/bg.gif";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  background: ${({ theme }) => theme.bg};
+  background-image: url(${bg});
+  filter: brightness(0.9);
+  background-size: cover;
+  background-position: center;
   color: ${({ theme }) => theme.text_primary};
   overflow-x: hidden;
   overflow-y: hidden;
