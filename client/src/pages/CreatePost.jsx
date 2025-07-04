@@ -6,8 +6,8 @@ import GeneratedImageCard from "../components/GeneratedImageCard";
 const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
-  background: ${({ theme }) => theme.bg};
   padding: 30px 30px;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -40,19 +40,21 @@ const CreatePost = () => {
     photo: "",
   });
   return (
-    <Container>
-      <Wrapper>
-        <GenerateImageForm
-          post={post}
-          setPost={setPost}
-          createPostLoading={createPostLoading}
-          setGenerateImageLoading={setGenerateImageLoading}
-          generateImageLoading={generateImageLoading}
-          setCreatePostLoading={setCreatePostLoading}
-        />
-        <GeneratedImageCard src={post?.photo} loading={generateImageLoading} />
-      </Wrapper>
-    </Container>
+    
+      <Container>
+        <Wrapper>
+          <GenerateImageForm
+            post={post}
+            setPost={setPost}
+            createPostLoading={createPostLoading}
+            setGenerateImageLoading={setGenerateImageLoading}
+            generateImageLoading={generateImageLoading}
+            setCreatePostLoading={setCreatePostLoading}
+          />
+          <GeneratedImageCard src={post?.photo} loading={generateImageLoading} />
+        </Wrapper>
+      </Container>
+    
   );
 };
 

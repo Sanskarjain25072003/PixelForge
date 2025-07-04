@@ -1,9 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "./utils/Theme";
 import Home from "./pages/Home";
-import CreatePost from "./pages/CreatePost";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import CreatePost from "./pages/CreatePost";
 
 
 const Container = styled.div`

@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import Loader from "./Loader";
 import React from "react";
 import styled from "styled-components";
 
@@ -67,9 +67,7 @@ const button = ({
       flex={flex}
     >
       {isLoading && (
-        <CircularProgress
-          style={{ width: "18px", height: "18px", color: "inherit" }}
-        />
+        <Loader/>
       )}
       {leftIcon}
       {text}
