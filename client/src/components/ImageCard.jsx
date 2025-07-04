@@ -8,17 +8,18 @@ import FileSaver from "file-saver";
 const Card = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
   border-radius: 20px;
   box-shadow: 1px 2px 40px 8px ${({ theme }) => theme.black + 60};
   cursor: pointer;
   transition: all 0.3s ease;
+  background: ${({ theme }) => theme.bg_secondary};
   &:hover {
     box-shadow: 1px 2px 40px 8px ${({ theme }) => theme.black + 80};
     scale: 1.05;
-  }
-  &:nth-child(7n + 1) {
-    grid-column: auto/span 2;
-    grid-row: auto/span 2;
   }
 `;
 
@@ -59,18 +60,40 @@ const Author = styled.div`
   color: ${({ theme }) => theme.white};
 `;
 
+// Utility to optimize Cloudinary URLs
+function getOptimizedCloudinaryUrl(url, width = 400, height = 400) {
+  if (!url?.includes("cloudinary.com")) return url;
+  return url.replace(
+    "/upload/",
+    `/upload/w_${width},h_${height},c_fill,q_auto,f_auto/`
+  );
+}
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+`;
+
 const ImageCard = ({ item }) => {
   return (
     <Card>
-      <LazyLoadImage
-        alt={item?.prompt}
-        style={{ borderRadius: "12px" }}
-        width="100%"
-        src={item?.photo}
-        loading="lazy"
-      />
+      <ImageWrapper>
+        <LazyLoadImage
+          alt={item?.prompt}
+          style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px", display: "block" }}
+          src={getOptimizedCloudinaryUrl(item?.photo)}
+          loading="lazy"
+          effect="blur"
+        />
+      </ImageWrapper>
       <HoverOverlay>
-        <Prompt>{item?.prompt}</Prompt>
+        <Prompt>{item?.prompt.slice(0, 100)}...</Prompt>
         <div
           style={{
             width: "100%",

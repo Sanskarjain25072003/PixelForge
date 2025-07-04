@@ -3,15 +3,12 @@ import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AddRounded, ExploreRounded } from "@mui/icons-material";
 import Button from "./Button";
-import { red } from "@mui/material/colors";
 
 const Container = styled.div`
   flex: 1;
-  background: transparent;
-  filter:brightness(0.7);
-  backdrop-filter: blur(50px);
   color: ${({ theme }) => theme.text_primary};
   font-weight: bold;
+background-image: linear-gradient(to right, #434343 0%, black 100%);
   font-size: 22px;
   padding: 14px 50px;
   display: flex;
@@ -29,7 +26,7 @@ const Navbar = () => {
   const path = location.pathname.split("/");
   return (
     <Container>
-      <span style={{color:"aqua",fontSize:"30px"}}>DreaMatrix</span>
+      <span style={{ color: "aqua", fontSize: "30px" }}>DreaMatrix</span>
       {path[1] === "post" ? (
         <Button
           onClick={() => navigate("/")}

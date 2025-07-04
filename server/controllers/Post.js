@@ -15,7 +15,7 @@ export const getAllPosts = async (req, res, next) => {
         const posts = await Post.find({})
         return res.status(200).json({ success: true, data: posts })
     } catch (err) {
-        next(createError(error.status, error.message))
+        next(createError(err.status, err.message))
     }
 }
 

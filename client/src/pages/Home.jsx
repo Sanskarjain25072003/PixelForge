@@ -9,6 +9,7 @@ import { GetPosts } from "../api";
 const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
+  background: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
   background-size: cover;
   backdrop-filter: blur(50px);
   padding: 30px 30px;
@@ -37,8 +38,10 @@ const Headline = styled.div`
 const Span = styled.div`
   font-size: 30px;
   font-weight: 800;
-  color: ${({ theme }) => theme.secondary};
-
+  background: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   @media (max-width: 600px) {
     font-size: 20px;
   }
@@ -54,15 +57,19 @@ const Wrapper = styled.div`
 
 const CardWrapper = styled.div`
   display: grid;
-  gap: 20px;
+  gap: 24px;
+  width: 100%;
   @media (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @media (min-width: 640px) and (max-width: 1199px) {
+  @media (min-width: 900px) and (max-width: 1199px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 639px) {
+  @media (min-width: 600px) and (max-width: 899px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -118,7 +125,7 @@ const Home = () => {
     <Container>
       <Headline>
         Explore More in the Community!
-        <Span>{`</created with Ai>`}</Span>
+        <Span>{`</Created with Ai>`}</Span>
       </Headline>
       <SearchBar search={search} setSearch={setSearch} />
       <Wrapper>
