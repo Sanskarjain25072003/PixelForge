@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchBar from "../components/SearchBar";
 import ImageCard from "../components/ImageCard";
-import { CircularProgress } from "@mui/material";
 import { GetPosts } from "../api";
-
+import Loader from "../components/Loader";
 
 const Container = styled.div`
   height: 100%;
@@ -131,7 +130,7 @@ const Home = () => {
       <Wrapper>
         {error && <div style={{ color: "red" }}>{error}</div>}
         {loading ? (
-          <CircularProgress />
+          <Loader/>
         ) : (
           <CardWrapper>
             {filteredPosts.length === 0 ? (
