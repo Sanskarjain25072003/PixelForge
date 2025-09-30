@@ -13,13 +13,17 @@ const Card = styled.div`
   max-width: 340px;
   margin: 0 auto;
   border-radius: 20px;
-  box-shadow: 1px 2px 40px 8px ${({ theme }) => theme.black + 60};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
-  background: ${({ theme }) => theme.bg_secondary};
+  background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  overflow: hidden;
+  
   &:hover {
-    box-shadow: 1px 2px 40px 8px ${({ theme }) => theme.black + 80};
-    scale: 1.05;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    border: 1px solid rgba(138, 43, 226, 0.5);
   }
 `;
 
@@ -34,10 +38,10 @@ const HoverOverlay = styled.div`
   flex-direction: column;
   align-items: start;
   gap: 10px;
-  backdrop-filter: blur(2px);
-  background: rgba(0, 0, 0, 0.5);
-  color: ${({ theme }) => theme.white};
-  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  background: linear-gradient(180deg, rgba(15, 15, 26, 0), rgba(15, 15, 26, 0.8));
+  color: ${({ theme }) => theme.text_primary};
+  transition: all 0.3s ease;
   border-radius: 6px;
   justify-content: end;
   padding: 16px;
@@ -46,11 +50,13 @@ const HoverOverlay = styled.div`
     opacity: 1;
   }
 `;
+
 const Prompt = styled.div`
   font-weight: 400px;
   font-size: 15px;
   color: ${({ theme }) => theme.white};
 `;
+
 const Author = styled.div`
   font-weight: 600px;
   font-size: 14px;

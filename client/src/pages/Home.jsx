@@ -8,9 +8,9 @@ import Loader from "../components/Loader";
 const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
-  background: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
-  background-size: cover;
-  backdrop-filter: blur(50px);
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   padding: 30px 30px;
   padding-bottom: 50px;
   display: flex;
@@ -19,6 +19,18 @@ const Container = styled.div`
   gap: 20px;
   @media (max-width: 768px) {
     padding: 6px 10px;
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 `;
 
@@ -34,10 +46,11 @@ const Headline = styled.div`
     font-size: 22px;
   }
 `;
+
 const Span = styled.div`
   font-size: 30px;
   font-weight: 800;
-  background: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+  background: linear-gradient(90deg, #8a2be2 0%, #9d4edd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

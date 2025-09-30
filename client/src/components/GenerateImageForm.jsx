@@ -8,27 +8,39 @@ import { CreatePost, generateAIImage } from "../api";
 
 const Form = styled.div`
   flex: 1;
-  padding: 16px 20px;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
   gap: 9%;
   justify-content: center;
+  background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(138, 43, 226, 0.2);
 `;
+
 const Top = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
 `;
+
 const Title = styled.div`
   font-size: 28px;
   font-weight: 500;
   color: ${({ theme }) => theme.text_primary};
+  background: linear-gradient(90deg, #8a2be2, #9d4edd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 `;
+
 const Desc = styled.div`
   font-size: 17px;
   font-weight: 400;
   color: ${({ theme }) => theme.text_secondary};
 `;
+
 const Body = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,10 +49,14 @@ const Body = styled.div`
   font-weight: 400;
   color: ${({ theme }) => theme.text_secondary};
 `;
+
 const Actions = styled.div`
   flex: 1;
   display: flex;
-  gap: 8px;
+  gap: 12px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const GenerateImageForm = ({

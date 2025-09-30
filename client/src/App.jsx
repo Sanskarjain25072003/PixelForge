@@ -14,6 +14,8 @@ const Container = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   transition: all 0.2s ease;
+  background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
+  min-height: 100vh;
 `;
 
 

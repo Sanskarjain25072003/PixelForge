@@ -14,6 +14,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Animated gradient background for the whole app */
+body {
+  background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
@@ -22,16 +43,16 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #222a35;
+  background: #1a1a2e;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #575c66;
+  background: #8a2be2;
   border-radius: 6px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #626970;
+  background: #9d4edd;
 }

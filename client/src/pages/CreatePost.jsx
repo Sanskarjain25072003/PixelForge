@@ -7,7 +7,9 @@ const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   padding: 30px 30px;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -16,6 +18,18 @@ const Container = styled.div`
   gap: 20px;
   @media (max-width: 768px) {
     padding: 6px 10px;
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 `;
 

@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.div`
-  border-radius: 10px;
+  border-radius: 12px;
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -14,18 +14,27 @@ const Button = styled.div`
   justify-content: center;
   gap: 6px;
   height: min-content;
-  padding: 10px 24px;
+  padding: 12px 28px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: none;
+  background: linear-gradient(135deg, #8a2be2, #9d4edd);
+  min-width: fit-content;
   @media (max-width: 600px) {
-    padding: 8px 12px;
+    padding: 10px 16px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
 
   ${({ type, theme }) =>
     type === "secondary"
       ? `
-  background: ${theme.secondary};
+  background: linear-gradient(135deg, ${theme.secondary}, #bb86fc);
   `
       : `
-  background: ${theme.primary};
+  background: linear-gradient(135deg, ${theme.primary}, #9d4edd);
 `}
 
   ${({ isDisabled }) =>
@@ -33,6 +42,8 @@ const Button = styled.div`
     `
   opacity: 0.4;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 
   `}
   ${({ isLoading }) =>
@@ -66,13 +77,17 @@ const button = ({
       isLoading={isLoading}
       flex={flex}
     >
-      {isLoading && (
-        <Loader/>
+      {isLoading ? (
+        <>
+          <Loader size="small" />
+        </>
+      ) : (
+        <>
+          {leftIcon}
+          {text}
+          {rightIcon}
+        </>
       )}
-      {leftIcon}
-      {text}
-      {isLoading && <> . . .</>}
-      {rightIcon}
     </Button>
   );
 };

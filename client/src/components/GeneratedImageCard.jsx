@@ -10,9 +10,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  border: 2px dashed ${({ theme }) => theme.yellow};
-  color: ${({ theme }) => theme.arrow + 80};
+  border: 2px dashed rgba(138, 43, 226, 0.5);
+  background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+  color: rgba(192, 192, 192, 0.8);
   border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 `;
 
 const Image = styled.img`
@@ -20,7 +22,8 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 24px;
-  background: ${({ theme }) => theme.black + 50};
+  background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 `;
 
 const GeneratedImageCard = ({ src, loading }) => {

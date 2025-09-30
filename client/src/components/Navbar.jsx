@@ -8,15 +8,29 @@ const Container = styled.div`
   flex: 1;
   color: ${({ theme }) => theme.text_primary};
   font-weight: bold;
-background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
   font-size: 22px;
   padding: 14px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
   @media only screen and (max-width: 600px) {
     padding: 10px 12px;
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 `;
 
