@@ -40,7 +40,7 @@ const Navbar = () => {
   const path = location.pathname.split("/");
   return (
     <Container>
-      <span style={{ color: "aqua", fontSize: "30px" }}>DreaMatrix</span>
+      <span style={{ color: "aqua", fontSize: "30px" }}>PixelForge</span>
       {path[1] === "post" ? (
         <Button
           onClick={() => navigate("/")}

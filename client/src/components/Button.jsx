@@ -7,7 +7,8 @@ const Button = styled.div`
   color: white;
   font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: ${({ $isDisabled, $isLoading }) => ($isDisabled || $isLoading ? 'not-allowed' : 'pointer')};
+  opacity: ${({ $isDisabled }) => ($isDisabled ? 0.5 : 1)};
   transition: all 0.3s ease;
   display: flex;
   align-items: center;

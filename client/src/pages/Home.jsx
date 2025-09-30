@@ -147,7 +147,7 @@ const Home = () => {
         ) : (
           <CardWrapper>
             {filteredPosts.length === 0 ? (
-              <>No Posts Found</>
+             <div style={{textAlign:"center"}}>No Posts Found</div>
             ) : (
               <>
                 {filteredPosts.map((item) => (
