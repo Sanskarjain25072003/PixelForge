@@ -10,7 +10,8 @@ app.use(express.json({limit: "50mb"}))
 app.use(express.urlencoded({ extended: true}))
 
 app.use(cors({
-  origin: 'https://pixelforge-ai.netlify.app'
+  origin: 'https://pixelforge-ai.netlify.app',
+  credentials: true // if you're using cookies/auth headers
 }));
 
 const PORT = process.env.PORT
